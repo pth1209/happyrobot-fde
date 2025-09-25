@@ -89,3 +89,8 @@ async def search_loads(
         query_df = query_df[query_df['equipment_type'].str.contains(search_request.equipment_type, case=False)]
 
     return query_df.to_dict(orient='records')
+
+
+@app.get("/health")
+def health_check():
+    return {"status": "ok"}
