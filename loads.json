@@ -1,0 +1,47 @@
+[
+    {
+      "load_id": "LD7890",
+      "origin": "Dallas, TX",
+      "destination": "Atlanta, GA",
+      "pickup_datetime": "2025-09-26T09:00:00Z",
+      "delivery_datetime": "2025-09-27T17:00:00Z",
+      "equipment_type": "Dry Van",
+      "loadboard_rate": 2200,
+      "notes": "Team drivers preferred for fast delivery.",
+      "weight": 42000,
+      "commodity_type": "Consumer Electronics",
+      "num_of_pieces": 1500,
+      "miles": 781,
+      "dimensions": "53ft"
+    },
+    {
+      "load_id": "LD1234",
+      "origin": "Chicago, IL",
+      "destination": "Los Angeles, CA",
+      "pickup_datetime": "2025-09-28T14:00:00Z",
+      "delivery_datetime": "2025-10-01T10:00:00Z",
+      "equipment_type": "Reefer",
+      "loadboard_rate": 4500,
+      "notes": "Must maintain 34°F. Appointment required for delivery.",
+      "weight": 38000,
+      "commodity_type": "Frozen Produce",
+      "num_of_pieces": 20,
+      "miles": 2015,
+      "dimensions": "53ft"
+    },
+    {
+      "load_id": "LD5566",
+      "origin": "Dallas, TX",
+      "destination": "Houston, TX",
+      "pickup_datetime": "2025-09-26T18:00:00Z",
+      "delivery_datetime": "2025-09-27T08:00:00Z",
+      "equipment_type": "Flatbed",
+      "loadboard_rate": 850,
+      "notes": "Tarps and straps required. Construction site delivery.",
+      "weight": 45000,
+      "commodity_type": "Steel Beams",
+      "num_of_pieces": 12,
+      "miles": 239,
+      "dimensions": "48ft"
+    }
+  ]
