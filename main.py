@@ -1,4 +1,5 @@
 import os
+from numpy import str_
 import pandas as pd
 from typing import List, Optional
 
@@ -40,14 +41,10 @@ async def get_api_key(api_key_header: str = Security(api_key_header)):
             detail="Invalid or missing API Key"
         )
 
-# --- Pydantic Models (for request and response validation) ---
-
 class LoadSearchRequest(BaseModel):
     """Defines the structure for a search request."""
-    origin: Optional[str] = None
-    destination: Optional[str] = None
-    equipment_type: Optional[str] = None
-
+    load_id: str
+    
 class Load(BaseModel):
     """Defines the structure of a single load, based on the provided fields."""
     load_id: str
