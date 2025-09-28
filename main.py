@@ -67,23 +67,13 @@ async def search_loads(
     api_key: str = Security(get_api_key)
 ):
     """
-    Search for loads based on origin, destination, and equipment type.
-    All search parameters are optional.
+    Search for a specific load by load_id.
     """
     if loads_df.empty:
         return []
 
-    query_df = loads_df.copy()
-
-    # Apply filters if they are provided in the request
-    if search_request.origin:
-        query_df = query_df[query_df['origin'].str.contains(search_request.origin, case=False)]
-    
-    if search_request.destination:
-        query_df = query_df[query_df['destination'].str.contains(search_request.destination, case=False)]
-        
-    if search_request.equipment_type:
-        query_df = query_df[query_df['equipment_type'].str.contains(search_request.equipment_type, case=False)]
+    # Filter by load_id (exact match since load_id is unique)
+    query_df = loads_df[loads_df['load_id'] == search_request.load_id]
 
     return query_df.to_dict(orient='records')
 
