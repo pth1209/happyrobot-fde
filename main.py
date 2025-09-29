@@ -41,10 +41,6 @@ async def get_api_key(api_key_header: str = Security(api_key_header)):
             detail="Invalid or missing API Key"
         )
 
-class LoadSearchRequest(BaseModel):
-    """Defines the structure for a search request."""
-    load_id: str
-    
 class Load(BaseModel):
     """Defines the structure of a single load, based on the provided fields."""
     load_id: str
@@ -61,19 +57,19 @@ class Load(BaseModel):
     miles: int
     dimensions: str
 
-@app.post("/v1/loads/search", response_model=List[Load])
-async def search_loads(
-    search_request: LoadSearchRequest, 
+@app.get("/v1/loads/{load_id}", response_model=List[Load])
+async def get_load(
+    load_id: str,
     api_key: str = Security(get_api_key)
 ):
     """
-    Search for a specific load by load_id.
+    Retrieve a specific load by load_id.
     """
     if loads_df.empty:
         return []
 
     # Filter by load_id (exact match since load_id is unique)
-    query_df = loads_df[loads_df['load_id'] == search_request.load_id]
+    query_df = loads_df[loads_df['load_id'] == load_id]
 
     return query_df.to_dict(orient='records')
 
